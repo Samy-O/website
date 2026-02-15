@@ -1,0 +1,14 @@
+services:
+  builder:
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app
+
+  nginx:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - builder
